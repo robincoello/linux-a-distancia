@@ -5,8 +5,34 @@ Como Traducir:
 
 Entra en :
 
-* https://annuel2.framapad.org/p/linux 
-* 
+* https://mensuel.framapad.org/p/KUrm4HgDtW
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+ 
 
 
 Creado el 27 de sept 2017 y es valido hasta el 27 sept 2018
