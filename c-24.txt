@@ -1,0 +1,289 @@
+###453---SYSTEME D'EXPLOITATION - e-learning - Séquence 24
+###Sauvegarde des données – 2
+###
+###Légende :
+###
+###Explications sur fond blanc
+###Exercice à accomplir sur fond rouge clair
+###Une ou plusieurs solutions possibles pour l’exécution de commande sur fond vert clair
+###Lignes de script sur fond jaune
+###
+###
+###
+###Quelques commandes :
+###
+###
+###
+###TAR
+###
+###NOM
+###       tar - Utilitaire de gestion d'archives
+###
+###
+###
+###En particulier, la commande « tar » permet de sauvegarder (créer une archive) ou restaurer (extraire d’une archive) des fichiers ou des arborescences de fichiers, dans ou à partir d’un « fichier » d’archive (enregistré sur disque ou sur bande ou etc.), ainsi que de lister le contenu de l’archive. Le « fichier » d’archive peut être un fichier ordinaire, ou un périphérique d’archivage local ou distant.
+###
+###Dans l’archive, chaque fichier sauvegardé est précédé d’un en-tête contenant ses caractéristiques, ainsi que son chemin absolu, mais sans le premier « / » (sauf si l’on utilise l’option : -P conserver les chemins absolus). Si l’on veut ensuite restaurer un fichier à son emplacement d’origine, il faut donc se placer à la racine au préalable. Sinon, il est restauré, avec son chemin, à partir du répertoire courant !
+###
+###Les options principales de la commande « tar » sont : -c sauvegarder, -x restaurer, -t lister, puis -f fichier préciser un chemin pour l’archive, -z compresser/décompresser (avec Gnu-Zip), -h sauvegarder les fichiers liés et non les liens symboliques, -m remplacer la date de dernière modification par la date de restauration, -P conserver les chemins absolus, -T fichier utiliser un fichier qui contient la liste des fichiers à sauvegarder (« - » signifie l’entrée standard), et ensuite --exclude fichier exclure un fichier, et enfin -v utiliser le mode « verbose ».
+###
+###Exemples : 1° tar -cvzf /root/etc.tar.gz /etc sauvegarder le répertoire /etc (en mode "verbose") en créant, dans /root, une archive compressée selon Gnu-Zip sous forme de fichier « etc.tar.gz » ; 2° tar -cvf /dev/st0 /home sauvegarder le répertoire /home (en mode "verbose") en créant une archive sur une cartouche de tape ordinaire.
+###
+###
+###
+###FIND(1)
+###
+###NOM
+###       find - Rechercher des fichiers dans une hiérarchie de répertoires
+###
+###SYNOPSIS
+###       find [-H] [-L] [-P] [-D option-debogage] [-Oniveau] [chemin...] [expression]
+###
+###DESCRIPTION
+###       GNU find parcourt les arborescences des répertoires de chacun des chemins
+###       mentionnés, en évaluant les expressions fournies pour chaque fichier
+###       rencontré. L'évaluation de l'expression se fait de gauche à droite, en suivant
+###       les règles de priorité décrites dans la section OPÉRATEURS, jusqu'à l'obtention
+###       du résultat (par exemple la partie gauche est fausse pour un opérateur et, vraie pour
+###       un opérateur ou), puis find passe au nom de fichier suivant.
+###
+###
+###
+###TOUCH(1)
+###
+###NOM
+###       touch - Modifier l'horodatage d'un fichier
+###
+###SYNOPSIS
+###       touch [OPTION]... FICHIER...
+###
+###DESCRIPTION
+###       Mettre à jour les dates (dates et heures) d'accès et de dernière modification
+###       de chaque FICHIER selon la date actuelle. Un paramètre FICHIER qui n'existe pas
+###       sera créé vide, à moins que les options -c ou -h ne soient fournies.
+###
+###
+###
+###FILE(1)
+###
+###NAME
+###       file - Determine file type
+###
+###C’est grâce à la commande « file » que l’on peut savoir si un fichier est un fichier de programme exécutable, ou un fichier de texte, ou etc.
+###
+###
+###
+###LN(1)
+###
+###NOM
+###       ln - Créer des liens entre des fichiers
+###
+###SYNOPSIS
+###       ln [OPTION]... [-T] CIBLE NOM_DU_LIEN (1e format)
+###       ln [OPTION]... CIBLE (2e format)
+###       ln [OPTION]... CIBLE... RÉPERTOIRE (3e format)
+###       ln [OPTION]... -t RÉPERTOIRE CIBLE... (4e format)
+###
+###DESCRIPTION
+###       Dans le 1e format, créer un lien vers la CIBLE avec le NOM_DU_LIEN.
+###       Dans le 2e format, créer un lien vers la CIBLE dans le répertoire actuel.
+###       Dans les 3e et 4e formats, créer des liens vers chaque CIBLE dans le RÉPERTOIRE.
+###       Par défaut, les liens créés sont des liens « durs » ou « directs » (« hard link »).
+###       Pour créer des liens symboliques, utiliser -s ou --symbolic.
+###       Lors de la création de liens directs, chaque CIBLE doit exister. Un lien symbolique
+###       peut contenir n'importe quel texte ; lors de la résolution du lien par la suite,
+###       un lien relatif est interprété par rapport à son répertoire parent.
+###
+###
+###
+###LABORATOIRE – Sauvegarde des données – 2
+###
+###Les exercices des séquences 23 à 24 s’enchaînent.
+###Il faut donc les accomplir dans l’ordre prévu.
+###
+###Dans la distribution Debian GNU/Linux :
+###
+###
+###
+###Connectez-vous dans un terminal sous le compte « guest »
+###
+###
+###
+###Faites en sorte que le working directory soit bien le répertoire de connexion de guest
+###
+###cd
+###
+###
+###
+###En relatif, sauvegardez le répertoire de connexion de guest (en mode "verbose") en créant, dans /tmp, une archive compressée selon Gnu-Zip sous forme de fichier « sauvecompguest.tar.gz »
+###
+###tar -cvzf /tmp/sauvecompguest.tar.gz .
+###
+###On peut également affecter le format « .tgz » au fichier d’archive compacté.
+###
+###
+###
+###Visualisez (en mode "verbose") tous les dossiers et fichiers de cette nouvelle archive
+###
+###tar -tvzf /tmp/sauvecompguest.tar.gz | more
+###
+###
+###
+###Listez les différentes archives déjà réalisées, en utilisant un format d’affichage long, avec les tailles dans un format lisible par un humain
+###
+###ls -lh /tmp/sauve*
+###
+###
+###
+###Modifiez l’un ou l’autre fichier de guest
+###
+###
+###
+###Sauvegardez les fichiers de guest modifiés il y a une minute en créant, dans /tmp, une archive sous forme de fichier « sauveminute.tar »
+###
+###find . -mmin 1 | tar -c -T - -f /tmp/sauveminute.tar
+###
+###« - » signifie l’entrée standard (c’est-à-dire, dans ce cas-ci, la sortie du processus find).
+###
+###
+###
+###Visualisez (en mode "verbose") tous les dossiers et fichiers de cette nouvelle archive
+###
+###tar -tvf /tmp/sauveminute.tar | more
+###
+###
+###
+###Sauvegardez les fichiers de guest modifiés dans la journée en créant, dans /tmp, une archive sous forme de fichier « sauvejournal.tar »
+###
+###find . -mtime 0 | tar -c -T - -f /tmp/sauvejournal.tar
+###
+###« - » signifie l’entrée standard (c’est-à-dire, dans ce cas-ci, la sortie du processus find).
+###
+###
+###
+###Visualisez (en mode "verbose") tous les dossiers et fichiers de cette nouvelle archive
+###
+###tar -tvf /tmp/sauvejournal.tar | more
+###
+###
+###
+###Réalisez une sauvegarde incrémentale en créant, dans /tmp, une archive sous forme de fichier « sauveincremental.tar » de tous les fichiers de guest créés ou modifiés depuis le 03/01 à 17h00
+###
+###touch -t 01031700 .reference
+###find ~ -newer .reference | tar -c -T - -f /tmp/sauveincremental.tar
+###
+###
+###
+###Visualisez (en mode "verbose") tous les dossiers et fichiers de cette nouvelle archive
+###
+###tar -tvf /tmp/sauveincremental.tar | more
+###
+###
+###
+###Visualisez le type de fichier d’archive que vous venez de créer
+###
+###file /tmp/sauveincremental.tar
+###
+###Si l’archive était sur une cartouche et non sur un disque dur, il faudrait d’abord la copier dans un fichier texte avant d’utiliser la commande file.
+###
+###Copie, à titre d’exemple, des 100 premiers blocs d’une cartouche SCSI ordinaire :
+###dd if=/dev/st0 of=/tmp/archive bs=1K count=100
+###
+###
+###
+###Dans le répertoire de connexion de guest, créez deux répertoires nommés : « rep1 » et « rep2 »
+###
+###mkdir rep1 rep2
+###
+###
+###
+###Dans le répertoire de connexion de guest, enregistrez sous le nom « scriptsauve » un fichier de script qui sauvegarde le répertoire de connexion de guest, à l’exception des répertoires « rep1 » et « rep2 », en créant, dans /tmp, une archive sous forme de fichier « sauveguestexcept.tar »
+###
+###echo '#!/bin/bash' > scriptsauve
+###echo '# Un script qui réalise une sauvegarde' >> scriptsauve
+###echo 'tar -c --exclude=/home/guest/rep1 --exclude=/home/guest/rep2 -f /tmp/sauveguestexcept.tar /home/guest' >> scriptsauve
+###
+###
+###
+###Exécutez un dump du fichier scriptsauve sur le terminal
+###
+###cat scriptsauve
+###
+###
+###
+###Lancez un shell bash qui exécute scriptsauve
+###
+###bash scriptsauve
+###
+###
+###
+###Visualisez (en mode "verbose") tous les dossiers et fichiers de cette nouvelle archive
+###
+###tar -tvf /tmp/sauveguestexcept.tar | more
+###
+###
+###
+###Listez les différentes archives, en utilisant un format d’affichage long, avec les tailles dans un format lisible par un humain
+###
+###ls -lh /tmp/sauve*
+###
+###
+###
+###Réalisez une sauvegarde absolue du répertoire de connexion de guest en créant, dans /tmp, une archive sous forme de fichier « sauveABSguest.tar »
+###
+###tar -cPf /tmp/sauveABSguest.tar /home/guest
+###
+###
+###
+###Visualisez tous les dossiers et fichiers sauvegardés
+###
+###tar -tf /tmp/sauveABSguest.tar | more
+###
+###
+###
+###Affichez le manuel de la commande ln
+###
+###man ln
+###
+###
+###
+###Dans le répertoire de connexion de guest, créez un lien symbolique vers le fichier /etc/profile, nommé « pointer-profile »
+###
+###ln -s /etc/profile pointer-profile
+###
+###
+###
+###Visualisez, en utilisant un format d’affichage long, les caractéristiques de ce lien symbolique
+###
+###ls -l pointer-profile
+###
+###
+###
+###Resauvegardez le répertoire de connexion de guest (en mode "verbose"), y compris ce lien symbolique, en recréant, dans /tmp, l’archive « sauveguest.tar »
+###
+###tar -cvf /tmp/sauveguest.tar /home/guest
+###
+###
+###
+###Visualisez (en mode "verbose") le lien symbolique sauvegardé
+###
+###tar -tvf /tmp/sauveguest.tar | grep pointer-profile
+###
+###
+###
+###Resauvegardez le répertoire de connexion de guest (en mode "verbose"), avec cette fois le fichier lié, en recréant, dans /tmp, l’archive « sauveguest.tar »
+###
+###tar -cvf /tmp/sauveguest.tar -h /home/guest
+###
+###
+###
+###Visualisez (en mode "verbose") quel est cette fois l’objet sauvegardé sous le nom « pointer-profile »
+###
+###tar -tvf /tmp/sauveguest.tar | grep pointer-profile
+###
+###
+###
+###Déconnectez-vous
+###
+###
+###

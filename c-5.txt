@@ -1,0 +1,460 @@
+###453---SYSTEME D'EXPLOITATION - e-learning - Séquence 5
+###Connexions, outils et accès aux manuels – 1
+###
+###Légende :
+###
+###Explications sur fond blanc
+###Exercice à accomplir sur fond rouge clair
+###Une ou plusieurs solutions possibles pour accomplir l’exercice sur fond vert clair
+###
+###
+###
+###Debian GNU/Linux étant installé, vous pouvez ouvrir une session en tant qu’utilisateur de ce système.
+###
+###Dans le « bureau » qui se présente alors à vous (interface graphique), dans le menu « Activités », puis « Afficher les applications », vous pouvez lancer un interpréteur de commandes (Shell), c’est-à-dire un « Terminal ».
+###
+###Lorsqu’on tape une commande dans un terminal puis qu’on pousse sur la touche « Entrée » pour l’exécuter, c’est un programme (soit « système », soit « d’application ») que l’on exécute. Une commande possède un « nom » et, selon l’utilisation que l’on en fait, peut être assortie d’une ou de plusieurs « options » et d’un « argument ». Par exemple, dans la commande : « ls -l /usr/bin/who », « ls » est le nom, « -l » est une option et « /usr/bin/who » est l’argument.
+###
+###Un système Linux est absolument sensible à la casse ; par exemple, la commande : « ls » DOIT être tapée « ls », et NON « LS » ou « Ls » ! Il en est de même pour tout nom d’utilisateur, de groupe, de fichier, de répertoire, etc.
+###
+###
+###
+###Quelques commandes :
+###
+###
+###
+###Chaque commande est annoncée avec son numéro de section de manuel (affichez au sujet des sections le manuel de la commande man en tapant la commande : « man man »).
+###
+###Dans une page de manuel, dans la rédaction d’un synopsis de commande, ce qui est non obligatoire est écrit entre crochets droits : « [   ] ».
+###
+###
+###
+###PWD(1)
+###
+###NOM
+###       pwd - Afficher le nom du répertoire de travail actuel
+###
+###SYNOPSIS
+###       pwd [OPTION]...
+###
+###DESCRIPTION
+###       Afficher le nom complet du répertoire de travail actuel.
+###
+###
+###
+###WHOAMI(1)
+###
+###NOM
+###       whoami - Afficher l'identifiant d'utilisateur
+###
+###SYNOPSIS
+###       whoami [OPTION]...
+###
+###DESCRIPTION
+###       Afficher le nom d'utilisateur associé à l'utilisateur courant. Identique à id -un.
+###
+###
+###
+###ID(1)
+###
+###NOM
+###       id - Afficher les identifiants d'utilisateur et de groupe effectifs et réels
+###
+###SYNOPSIS
+###       id [OPTION]... [UTILISATEUR]
+###
+###DESCRIPTION
+###       Afficher les informations sur l'utilisateur et le groupe pour UTILISATEUR,
+###       ou (si UTILISATEUR est omis) pour l'utilisateur courant.
+###
+###
+###
+###WHO(1)
+###
+###NOM
+###       who - Montrer qui est connecté
+###
+###SYNOPSIS
+###       who [OPTION] ... [ FICHIER | PARAM1 PARAM2 ]
+###
+###DESCRIPTION
+###       Afficher les informations sur les utilisateurs actuellement connectés.
+###
+###
+###
+###EXIT(3)
+###
+###NAME
+###       exit - Cause normal process termination
+###
+###
+###
+###En particulier, la commande « exit » permet de terminer l’exécution d’un processus bash (Interpréteur de commandes GNU Bourne-Again Shell).
+###
+###
+###
+###CLEAR(1)
+###
+###NAME
+###       clear - Clear the terminal screen
+###
+###SYNOPSIS
+###       clear
+###
+###DESCRIPTION
+###       clear clears your screen if this is possible. It looks in the environment
+###       for the terminal type and then in the terminfo database to figure out
+###       how to clear the screen.
+###
+###
+###
+###MAN(1)
+###
+###NOM
+###       man - Interface de consultation des manuels de référence en ligne
+###
+###
+###
+###INFO(1)
+###
+###NAME
+###       info - Read Info Documents
+###
+###SYNOPSIS
+###       info [OPTION]... [MENU-ITEM...]
+###
+###DESCRIPTION
+###       Read documentation in Info format.
+###
+###
+###
+###WHATIS(1)
+###
+###NOM
+###       whatis - Afficher la description des pages de manuel
+###
+###SYNOPSIS
+###       whatis [-dlhvV] [-r|-w] [-s liste] [-m système[,...]] [-M chemin]
+###       [-L locale] [-C fichier] nom ...
+###
+###DESCRIPTION
+###       Chaque page de manuel comporte une description courte.
+###       whatis recherche des pages de manuel dont le nom correspond à nom
+###       et affiche leur description courte.
+###
+###
+###
+###HOSTNAME(1)
+###
+###NAME
+###       hostname - Show or set the system's host name
+###
+###
+###
+###UNAME(1)
+###
+###NOM
+###       uname - Afficher des informations sur le système
+###
+###SYNOPSIS
+###       uname [OPTION]...
+###
+###DESCRIPTION
+###       Afficher certaines informations concernant le système.
+###       Le comportement est identique si OPTION est omis ou -s est utilisée.
+###
+###
+###
+###DATE(1)
+###
+###NOM
+###       date - Afficher ou configurer la date et l'heure du système
+###
+###SYNOPSIS
+###       date [OPTION]... [+FORMAT]
+###       date [-u|--utc|--universal] [MMJJhhmm[[CC]AA][.ss]]
+###
+###DESCRIPTION
+###       Afficher dans le FORMAT indiqué ou configurer la date et l'heure du système.
+###
+###
+###
+###CAL(1)
+###
+###NAME
+###       cal, ncal - Displays a calendar and the date of Easter
+###
+###SYNOPSIS
+###       cal [-3hjy] [-A number] [-B number] [[month] year]
+###       cal [-3hj] [-A number] [-B number] -m month [year]
+###       ncal [-3bhjJpwySM] [-A number] [-B number] [-s country_code] [[month] year]
+###       ncal [-3bhJeoSM] [-A number] [-B number] [year]
+###       ncal [-CN] [-H yyyy-mm-dd] [-d yyyy-mm]
+###
+###DESCRIPTION
+###       The cal utility displays a simple calendar in traditional format
+###       and ncal offers an alternative layout, more options and the date of Easter.
+###       The new format is a little cramped but it makes a year fit on a 25x80 terminal.
+###       If arguments are not specified, the current month is displayed.
+###
+###
+###
+###PASSWD(1)
+###
+###NOM
+###       passwd - Modifier le mot de passe d'un utilisateur
+###
+###SYNOPSIS
+###       passwd [options] [LOGIN]
+###
+###DESCRIPTION
+###       La commande passwd modifie les mots de passe des comptes d'utilisateurs.
+###       Un utilisateur normal ne peut changer que son propre mot de passe, alors que
+###       le superutilisateur peut changer le mot de passe associé à n'importe quel compte.
+###       passwd modifie également les dates de fin de validité du compte
+###       ou du mot de passe associé.
+###
+###
+###
+###Un fichier :
+###
+###
+###
+###PASSWD(5)
+###
+###NOM
+###       passwd - Fichier des mots de passe (en fait : d’informations sur les comptes utilisateurs)
+###
+###DESCRIPTION
+###       /etc/passwd contient différentes informations sur les comptes utilisateurs.
+###       Ces informations consistent en sept champs séparés par des deux-points (« : ») :
+###
+###       ·   nom de connexion de l'utilisateur (« login »)
+###
+###       ·   un mot de passe chiffré optionnel
+###
+###       ·   l'identifiant numérique de l'utilisateur
+###
+###       ·   l'identifiant numérique du groupe de l'utilisateur
+###
+###       ·   le nom complet de l'utilisateur ou un champ de commentaires
+###
+###       ·   le répertoire personnel de l'utilisateur
+###
+###       ·   l'interpréteur de commandes de l'utilisateur (optionnel)
+###
+###       Le champ du mot de passe chiffré peut être vide. Dans ce cas,
+###       aucun mot de passe n'est nécessaire pour s'authentifier avec le compte donné.
+###       Cependant, certaines applications qui lisent le fichier /etc/passwd peuvent décider
+###       de ne donner aucun accès si le mot de passe est vide. Si le mot de passe est un « x »
+###       minuscule, alors le mot de passe chiffré se trouve dans le fichier shadow(5) ;
+###       il doit y avoir une ligne correspondante dans le fichier shadow,
+###       sinon le compte de l'utilisateur n'est pas valide.
+###
+###
+###
+###LABORATOIRE – Connexions, outils et accès aux manuels – 1
+###
+###
+###
+###Dans la distribution Debian GNU/Linux :
+###
+###
+###
+###Une connexion au système (Ouverture de session ou Logging on), dans l’interface graphique ou dans une interface texte (il y en a six : tty1 à tty6), nécessite la saisie de deux informations : Username + Password.
+###
+###Connectez-vous au système en mode graphique (Username + Password)
+###
+###Vous venez de lancer une « session utilisateur » en mode graphique.
+###
+###
+###
+###Etant connecté au système en mode graphique, basculez en mode texte (dans tty6)
+###
+###CTRL+ALT+F6
+###
+###
+###
+###Etant en mode texte dans tty6, basculez en mode texte dans tty2
+###
+###ALT+F2
+###
+###
+###
+###Connectez-vous (Username + Password)
+###
+###Vous venez de lancer une « session utilisateur » en mode texte.
+###
+###Dans la suite, pour la nécessité des explications, le mot « user » représentera le nom de l’utilisateur ordinaire.
+###
+###En tête de ligne de commande, on trouve : « user@localhost:~$ » ; « ~ » signifie que le working directory est : répertoire personnel de user (en principe : /home/user) et « $ » signifie que le current logged user est « user », c’est-à-dire un utilisateur ordinaire et non pas l’administrateur du système, c’est-à-dire le superutilisateur, nommé « root ».
+###
+###
+###
+###Affichez le chemin complet du current working directory
+###
+###pwd
+###
+###
+###
+###Affichez sous quel compte vous êtes connecté
+###
+###whoami
+###
+###
+###
+###Affichez l’identification système de votre compte
+###
+###id
+###
+###
+###
+###Affichez la liste des utilisateurs connectés
+###
+###who
+###
+###
+###
+###Déconnectez-vous
+###
+###exit
+###
+###
+###
+###Basculez en mode graphique
+###
+###ALT+F7
+###
+###
+###
+###Basculez en mode texte (dans tty3)
+###
+###CTRL+ALT+F3
+###
+###
+###
+###Connectez-vous (Username + Password)
+###
+###
+###
+###Affichez le manuel (commande Unix) de la commande clear
+###
+###man clear
+###
+###…
+###
+###q
+###
+###« q » permet de terminer cet affichage.
+###
+###
+###
+###Affichez le manuel (commande Gnu) de la commande clear
+###
+###info clear
+###
+###
+###
+###Effacez l’écran du terminal
+###
+###clear
+###
+###
+###
+###Affichez le manuel de la commande whatis
+###
+###man whatis
+###
+###
+###
+###Affichez une courte description de la page de manuel de clear
+###
+###whatis clear
+###
+###man -f clear
+###
+###
+###
+###Affichez le manuel des commandes hostname et uname
+###
+###man hostname
+###
+###man uname
+###
+###
+###
+###Affichez le nom d’hôte de la machine locale
+###
+###hostname
+###
+###
+###
+###Affichez toutes les informations sur le système (version du noyau, etc.)
+###
+###uname -a
+###
+###Version IMPAIRE (par exemple 2.5) = version de noyau INSTABLE
+###Version PAIRE (par exemple 2.6) = version de noyau STABLE
+###
+###
+###
+###Affichez le manuel des commandes date et cal
+###
+###man date
+###
+###man cal
+###
+###
+###
+###Affichez la date et l’heure système
+###
+###date
+###
+###
+###
+###Affichez le calendrier courant
+###
+###cal
+###
+###
+###
+###Affichez le manuel de la commande man
+###
+###man man
+###
+###Les pages de manuel sont réparties dans huit [neuf] sections.
+###
+###       Le tableau ci-dessous indique le numéro des sections de manuel ainsi que le type de pages qu’elles contiennent.
+###
+###       1   Programmes exécutables ou commandes de l’interpréteur de commandes (shell) ;
+###       2   Appels système (Fonctions fournies par le noyau) ;
+###       3   Appels de bibliothèque (fonctions fournies par les bibliothèques des programmes) ;
+###       4   Fichiers spéciaux (situés généralement dans /dev) ;
+###       5   Formats des fichiers et conventions. Par exemple /etc/passwd ;
+###       6   Jeux ;
+###       7   Divers (y compris les macropaquets et les conventions). Par exemple, man(7), groff(7) ;
+###       8   Commandes de gestion du système (généralement réservées au superutilisateur) ;
+###       9   Sous-programmes du noyau [hors standard].
+###
+###
+###
+###Affichez la page de manuel concernant le fichier passwd
+###
+###man 5 passwd
+###
+###
+###
+###Affichez le manuel de la commande passwd
+###
+###man 1 passwd
+###
+###man passwd
+###
+###
+###
+###Déconnectez-vous
+###
+###exit
+###
+###
+###

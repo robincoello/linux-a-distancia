@@ -1,0 +1,433 @@
+###﻿453---SYSTEME D'EXPLOITATION - e-learning - Séquence 10
+###Accès au système de fichiers – 4
+###
+###Légende :
+###
+###Explications sur fond blanc
+###Exercice à accomplir sur fond rouge clair
+###Une ou plusieurs solutions possibles pour accomplir l’exercice sur fond vert clair
+###
+###
+###
+###Syntaxe du shell :
+###
+###Annonce d’un commentaire			#
+###
+###Séparation de commandes			; ou un saut de ligne ou une tabulation
+###
+###Evaluation d’une variable			$
+###
+###
+###
+###Toute application (tout processus) possède un espace mémoire dit d’environnement, contenant des variables d’environnement ayant chacune un nom et une valeur sous forme d’une chaîne de caractères. Cet espace est hérité de processus père en processus fils.
+###
+###Quelques variables d’environnement du shell :
+###
+###PS1		Prompt
+###HOME		Chemin absolu du répertoire de connexion
+###PATH		Chemins des répertoires où sont recherchées les commandes (séparés par « : »)
+###
+###
+###
+###Syntaxe du shell : les caractères de protection ou d’échappement :
+###
+###\	Annulation de la signification du caractère spécial suivant
+###'...'	Annulation de la signification de tous les caractères spéciaux
+###"..."	Annulation de la signification des caractères spéciaux, sauf : « ` », « \ » et « $ »
+###
+###
+###
+###Syntaxe du shell : les redirections de fichier :
+###
+###	<	Redirection en entrée
+###	>	Redirection en sortie (création ou réécriture)
+###	>>	Redirection en sortie (création ou ajout)
+###
+###
+###
+###« | » symbolise un « pipe », c’est-à-dire un « tube de communication » entre deux processus.
+###
+###
+###
+###Syntaxe du shell : les substitutions de commande :
+###
+###`commande`			la commande est interprétée
+###$(commande)			la commande est interprétée
+###
+###
+###
+###! ! !   Caractères différents utilisés :	'   quote	"   double quote	`   antiquote   ! ! !
+###
+###
+###
+###Quelques commandes :
+###
+###
+###
+###ECHO(1)
+###
+###NOM
+###       echo - Afficher une ligne de texte
+###
+###SYNOPSIS
+###       echo [OPTION-COURTE]... [CHAÎNE]...
+###       echo OPTION-LONGUE
+###
+###DESCRIPTION
+###       Afficher la(les) CHAÎNE(s) en écho sur la sortie standard.
+###
+###
+###
+###IFCONFIG(8)
+###
+###NOM
+###       ifconfig - configure une interface réseau
+###
+###SYNOPSIS
+###       ifconfig [interface]
+###       ifconfig interface [aftype] options | adresse ...
+###
+###DESCRIPTION
+###       ifconfig est utilisé pour configurer (et maintenir ensuite) les interfaces réseau
+###       résidentes dans le noyau. Si aucun argument n'est donné, ifconfig affiche
+###       simplement l'état des interfaces actuellement définies. Si seul le paramètre interface
+###       est donné, il affiche seulement l'état de l'interface correspondante. Si seul
+###       le paramètre -a est fourni, il affiche l'état de toutes les interfaces, même celles
+###       qui ne sont pas actives.
+###
+###
+###
+###BASH(1)
+###
+###NOM
+###       bash - Interpréteur de commandes GNU Bourne-Again SHell
+###
+###SYNOPSIS
+###       bash [options] [chaîne_de_commande | fichier]
+###
+###DESCRIPTION
+###       bash est un interpréteur de commandes (shell) compatible sh qui exécute les
+###       commandes lues depuis l'entrée standard ou depuis un fichier. bash inclut aussi
+###       des fonctionnalités utiles des interpréteurs de commandes ksh et csh.
+###
+###
+###
+###GREP(1)
+###
+###NOM
+###       grep, egrep, fgrep, rgrep - Afficher les lignes correspondant à un motif donné
+###
+###SYNOPSIS
+###       grep [OPTIONS] MOTIF [FICHIER...]
+###       grep [OPTIONS] [-e MOTIF | -f FICHIER] [FICHIER...]
+###
+###DESCRIPTION
+###       grep recherche dans les FICHIERs indiqués les lignes correspondant à un certain
+###       MOTIF. Par défaut, grep affiche les lignes qui contiennent une correspondance
+###       au motif. L'entrée standard est lue si FICHIER est omis ou si FICHIER vaut « - ».
+###
+###       Trois variantes du programme sont disponibles : egrep, fgrep et rgrep ; egrep
+###       est identique à grep -E, fgrep est identique à grep -F et rgrep est identique à
+###       grep -r. L'appel direct à egrep ou fgrep est déconseillé, mais est toujours possible pour
+###       permettre à d'anciennes applications qui les utilisent de fonctionner sans modification.
+###
+###
+###
+###Quelques fichiers :
+###
+###
+###
+###« ~/.profile » (ou « ~/.bash_profile », selon les versions) :
+###	fichier de script de démarrage du shell bash spécifique d’un utilisateur
+###
+###« /etc/profile » :
+###	fichier de script de démarrage commun à l’ensemble des utilisateurs
+###
+###
+###
+###LABORATOIRE – Accès au système de fichiers – 4
+###
+###Les exercices des séquences 7 à 11 s’enchaînent.
+###Il faut donc les accomplir dans l’ordre prévu.
+###
+###Dans la distribution Debian GNU/Linux :
+###
+###
+###
+###Dans la suite, le nom de l’utilisateur ordinaire sera représenté par le mot « user ».
+###
+###
+###
+###Connectez-vous dans un terminal
+###
+###
+###
+###« ~ » représente le répertoire de connexion de l’utilisateur courant.
+###
+###Avec echo, affichez le répertoire de connexion
+###
+###echo ~
+###
+###
+###
+###Variables d’environnement :
+###
+###PS1		Prompt
+###HOME		Chemin absolu du répertoire de connexion
+###PATH		Chemins des répertoires où sont recherchées les commandes (séparés par « : »)
+###
+###En utilisant la variable PS1, affichez le prompt
+###
+###echo $PS1
+###
+###
+###
+###En utilisant la variable HOME, affichez le répertoire de connexion
+###
+###echo $HOME
+###
+###
+###
+###En utilisant la variable HOME, affichez : « Voici mon répertoire de connexion : /home/user »
+###
+###echo "Voici mon répertoire de connexion : $HOME"
+###
+###
+###
+###En utilisant la variable HOME, ajoutez dans le fichier ~/#Commentaire : « Voici mon répertoire de connexion : /home/user »
+###
+###echo "Voici mon répertoire de connexion : $HOME" >> \#Commentaire
+###
+#### est un caractère spécial ; sa signification a été annulée grâce à l’utilisation de \
+###
+###
+###
+###Affichez le contenu du fichier ~/#Commentaire
+###
+###cat \#Commentaire
+###
+###
+###
+###Avec echo, affichez la phrase : « Voici la date et l’heure :  », suivie de la date et de l’heure
+###
+###echo "Voici la date et l’heure : " ; date
+###
+###
+###
+###Syntaxe du shell : les substitutions de commande :
+###
+###`commande`			la commande est interprétée
+###$(commande)			la commande est interprétée
+###
+###"..."	Annulation de la signification des caractères spéciaux, sauf : « ` », « \ » et « $ »
+###
+###Avec echo, affichez la phrase : « Voici la date et l’heure :  », suivie de la date et de l’heure passées en arguments par la commande date à la commande echo
+###
+###echo "Voici la date et l’heure : `date`"
+###
+###On a ainsi généré dynamiquement des arguments pour la commande echo.
+###
+###
+###
+###Affichez les chemins des répertoires où sont recherchées les commandes
+###
+###echo $PATH
+###
+###
+###
+###Essayez d’afficher la version de la commande d’administration ifconfig
+###
+###ifconfig --version
+###
+###
+###
+###Recommencez en précisant le chemin absolu de cette commande
+###
+###/sbin/ifconfig --version
+###
+###
+###
+###Faites en sorte que le working directory devienne « /sbin »
+###
+###cd /sbin
+###
+###
+###
+###Essayez d’afficher la version de la commande d’administration ifconfig
+###
+###ifconfig --version
+###
+###
+###
+###Recommencez en précisant le chemin de cette commande
+###
+###./ifconfig --version
+###
+###
+###
+###Changez de working directory de façon à ce qu’il devienne le répertoire personnel de user
+###
+###cd
+###
+###cd ~
+###
+###
+###
+###Modifiez transitoirement la valeur de la variable PATH de façon à ce qu’elle comprenne aussi le chemin « /sbin »
+###
+###PATH=$PATH:/sbin
+###
+###Une modification permanente de la valeur de PATH nécessite une mise à jour du fichier système : « ~/.profile » (ou « ~/.bash_profile », selon les versions).
+###
+###
+###
+###Affichez les chemins des répertoires où sont recherchées les commandes
+###
+###echo $PATH
+###
+###
+###
+###Affichez la version de la commande d’administration ifconfig
+###
+###ifconfig --version
+###
+###
+###
+###Affichez le manuel de la commande bash
+###
+###man bash
+###
+###
+###
+###Lancez un shell bash fils
+###
+###bash
+###
+###
+###
+###Affichez les chemins des répertoires où sont recherchées les commandes
+###
+###echo $PATH
+###
+###Toute application (tout processus) possède un espace mémoire dit d’environnement, contenant des variables d’environnement ayant chacune un nom et une valeur sous forme d’une chaîne de caractères. Cet espace est hérité de processus père en processus fils.
+###
+###
+###
+###Déconnectez-vous
+###
+###exit
+###
+###Extinction du processus fils.
+###
+###exit
+###
+###Extinction du processus père.
+###
+###
+###
+###Reconnectez-vous dans un terminal
+###
+###
+###
+###Affichez les chemins des répertoires où sont recherchées les commandes
+###
+###echo $PATH
+###
+###
+###
+###Affichez le manuel de la commande grep
+###
+###man grep
+###
+###
+###
+###Affichez les lignes du fichier /etc/services qui contiennent la chaîne « HTTP »
+###
+###grep HTTP /etc/services
+###
+###
+###
+###Exécutez la même tâche en ne tenant pas compte de la casse
+###
+###grep -i HTTP /etc/services
+###
+###
+###
+###Affichez les lignes du fichier /etc/services qui contiennent la chaîne « HTTP » en les numérotant
+###
+###grep -n HTTP /etc/services
+###
+###
+###
+###Affichez le nombre d’occurrences de la chaîne « HTTP » dans le fichier /etc/services
+###
+###grep -c HTTP /etc/services
+###
+###
+###
+###Affichez les fichiers dans le répertoire /etc qui contiennent la chaîne « HTTP »
+###
+###grep -l HTTP /etc/*
+###
+###
+###
+###Affichez les lignes du fichier /etc/services qui commencent par la chaîne « http »
+###
+###grep '^http' /etc/services
+###
+###
+###
+###Affichez les lignes du fichier /etc/services qui ne contiennent pas la chaîne « HTTP »
+###
+###grep -v HTTP /etc/services
+###
+###
+###
+###« | » symbolise un « pipe », c’est-à-dire un « tube de communication » entre deux processus.
+###
+###Exécutez la même tâche page par page
+###
+###grep -v HTTP /etc/services | more
+###
+###
+###
+###Affichez page par page les lignes du fichier /etc/services qui ne commencent pas par la chaîne « http »
+###
+###grep -v '^http' /etc/services | more
+###
+###
+###
+###Créez dans ~ trois fichiers nommés : « f1.txt », « f2.txt » et « f3.txt », contenant chacun quelques lignes de texte non triées et contenant plusieurs fois la chaîne « html »
+###
+###
+###
+###Affichez la concaténation des fichiers ~/f1.txt, ~/f2.txt et ~/f3.txt
+###
+###cat f1.txt f2.txt f3.txt
+###
+###
+###
+###Affichez la concaténation des fichiers ~/f1.txt, ~/f2.txt et ~/f3.txt en numérotant les lignes non vides
+###
+###cat -b f1.txt f2.txt f3.txt
+###
+###
+###
+###Affichez la concaténation des fichiers ~/f1.txt, ~/f2.txt et ~/f3.txt en numérotant toutes les lignes
+###
+###cat -n f1.txt f2.txt f3.txt
+###
+###
+###
+###Ecrivez la concaténation des fichiers ~/f1.txt, ~/f2.txt et ~/f3.txt dans le fichier nommé : « f4.txt », en le créant dans ~
+###
+###cat f1.txt f2.txt f3.txt > f4.txt
+###
+###
+###
+###Déconnectez-vous
+###
+###exit
+###
+###
+###

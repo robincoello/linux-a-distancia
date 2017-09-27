@@ -1,0 +1,424 @@
+###453---SYSTEME D'EXPLOITATION - e-learning - Séquence 20
+###Utilisateurs, groupes et droits – 3
+###
+###Légende :
+###
+###Explications sur fond blanc
+###Exercice à accomplir sur fond rouge clair
+###Une ou plusieurs solutions possibles pour accomplir l’exercice sur fond vert clair
+###
+###
+###
+###Quelques commandes :
+###
+###
+###
+###CHOWN(1)
+###
+###NOM
+###       chown - Modifier le propriétaire et/ou le groupe d'un fichier
+###
+###SYNOPSIS
+###       chown [OPTION]... [PROPRIÉTAIRE][:[GROUPE]] FICHIER...
+###       chown [OPTION]... --reference=FICHIER-R FICHIER...
+###
+###DESCRIPTION
+###       Le programme chown modifie le propriétaire et/ou le groupe propriétaire de chacun
+###       des fichiers indiqués. Si seul un propriétaire (un nom d'utilisateur ou un
+###       identifiant numérique) est spécifié, celui-ci devient le propriétaire des fichiers
+###       donnés, mais les groupes de ces fichiers ne sont pas modifiés.
+###
+###
+###
+###CHGRP(1)
+###
+###NOM
+###       chgrp - Changer le groupe propriétaire d'un fichier
+###
+###SYNOPSIS
+###       chgrp [OPTION]... GROUPE FICHIER...
+###       chgrp [OPTION]... --reference=FICHIER-R FICHIER...
+###
+###DESCRIPTION
+###       Changer le groupe d'appartenance de chaque FICHIER en GROUPE. Avec l'option
+###       --reference, modifier le groupe de chaque fichier en celui de FICHIER-R.
+###
+###
+###
+###CHMOD(1)
+###
+###NOM
+###       chmod - Modifier les bits de comportement (droits ou permissions, etc.) de fichier
+###
+###SYNOPSIS
+###       chmod [OPTION]... MODE[,MODE]... FICHIER...
+###       chmod [OPTION]... MODE-OCTAL FICHIER
+###       chmod [OPTION]... --reference=FICHIER-R FICHIER
+###
+###DESCRIPTION
+###       Le programme chmod modifie les bits de comportement (droits ou permissions, etc.)
+###       de fichier de chacun des fichiers indiqués, en suivant l'indication de mode, qui peut
+###       être une représentation symbolique des changements à effectuer, ou un nombre
+###       octal représentant le motif binaire des nouveaux bits de comportement.
+###
+###
+###
+###WHEREIS(1)
+###
+###NOM
+###       whereis - Rechercher les fichiers exécutables, les sources et les pages de manuel
+###       d'une commande
+###
+###SYNOPSIS
+###       whereis [-bmsu] [-BMS répertoire ... -f] fichier ...
+###
+###DESCRIPTION
+###       whereis recherche les fichiers exécutables, les sources et les pages de manuel des
+###       fichiers indiqués. Les noms des fichiers sont obtenus en supprimant le chemin d'accès
+###       et les extensions (uniques) éventuelles de la forme .ext, comme par exemple .c.
+###       Les préfixes de la forme s. utilisés pour le contrôle du code source sont également pris
+###       en charge. whereis recherche le programme demandé dans une liste de
+###       répertoires standards sous Linux.
+###
+###
+###
+###UPTIME(1)
+###
+###NOM
+###       uptime - Indiquer depuis quand le système a été mis en route
+###
+###SYNOPSIS
+###       uptime [options]
+###
+###DESCRIPTION
+###       uptime affiche sur une ligne les informations suivantes : l'heure actuelle, la durée
+###       depuis laquelle le système fonctionne, le nombre d'utilisateurs actuellement connectés,
+###       et la charge système moyenne pour les 1, 5, et 15 dernières minutes.
+###
+###
+###
+###GREP(1)
+###
+###NOM
+###       grep, egrep, fgrep, rgrep - Afficher les lignes correspondant à un motif donné
+###
+###SYNOPSIS
+###       grep [OPTIONS] MOTIF [FICHIER...]
+###       grep [OPTIONS] [-e MOTIF | -f FICHIER] [FICHIER...]
+###
+###DESCRIPTION
+###       grep recherche dans les FICHIERs indiqués les lignes correspondant à un certain
+###       MOTIF. Par défaut, grep affiche les lignes qui contiennent une correspondance
+###       au motif. L'entrée standard est lue si FICHIER est omis ou si FICHIER vaut « - ».
+###
+###       Trois variantes du programme sont disponibles : egrep, fgrep et rgrep ; egrep
+###       est identique à grep -E, fgrep est identique à grep -F et rgrep est identique à
+###       grep -r. L'appel direct à egrep ou fgrep est déconseillé, mais est toujours possible pour
+###       permettre à d'anciennes applications qui les utilisent de fonctionner sans modification.
+###
+###
+###
+###LABORATOIRE – Utilisateurs, groupes et droits – 3
+###
+###Les exercices des séquences 18 à 21 s’enchaînent.
+###Il faut donc les accomplir dans l’ordre prévu.
+###
+###Dans la distribution Debian GNU/Linux :
+###
+###
+###
+###Connectez-vous dans un terminal sous le compte « root », c’est-à-dire le superutilisateur (Password du root)
+###
+###
+###
+###Utilisateurs :
+###
+###u	user	(PROPRIETAIRE)
+###g	group	(GROUPE)
+###o	other	(AUTRES)
+###
+###a	all	(TOUS)
+###
+###
+###
+###Droits :
+###
+###=	affectation de droit(s)
+###+	ajouter un droit
+###-	retirer un droit
+###
+###r	read
+###w	write		(création et suppression d’entrées, dans le cas d’un répertoire)
+###x	execute	(accès aux fichiers, dans le cas d’un répertoire)
+###
+###s	SUID (Set-UID : appliqué à un fichier binaire exécutable : tout utilisateur ayant le droit de l’exécuter reçoit alors les mêmes droits que le propriétaire de ce fichier en ce qui concerne les accès réalisés lors de cette exécution)
+###
+###s	SGID (Set-GID : appliqué à un fichier binaire exécutable : tout utilisateur ayant le droit de l’exécuter reçoit alors les mêmes droits que le groupe de ce fichier en ce qui concerne les accès réalisés lors de cette exécution)
+###
+###s	SGID (Set-GID : appliqué à un répertoire : tout fichier créé dans ce répertoire reçoit alors comme groupe le groupe de ce répertoire)
+###
+###t	sticky bit (appliqué à un répertoire accessible en écriture à plusieurs utilisateurs : à part le propriétaire du répertoire, il faut alors être propriétaire d’un fichier qui y réside pour avoir le droit de le détruire)
+###
+###Endossement ou sticky bit
+###user
+###group
+###other
+###4000
+###SUID
+###400
+###r
+###40
+###r
+###4
+###r
+###2000
+###SGID
+###200
+###w
+###20
+###w
+###2
+###w
+###1000
+###sticky bit
+###100
+###x   (1)
+###10
+###x   (2)
+###1
+###x   (3)
+###
+###
+###(1)	s=SUID+x
+###	S=SUID
+###(2)	s=SGID+x
+###	S=SGID
+###(3)	t=sticky bit+x
+###	T=sticky bit
+###
+###
+###
+###Changez les caractéristiques du répertoire nommé : « Dossier des utilisateurs » : nouveau propriétaire : UserX – nouveau groupe : GroupA – nouveaux droits : rwx pour le propriétaire et le groupe mais pas pour les autres, SGID et sticky bit
+###
+###chown UserX /home/'Dossier des utilisateurs'
+###
+###chgrp GroupA /home/'Dossier des utilisateurs'
+###
+###chmod 3770 /home/'Dossier des utilisateurs'
+###
+###
+###
+###Visualisez les changements
+###
+###ls -ld /home/'Dossier des utilisateurs'
+###
+###
+###
+###Changez les droits sur les fichiers contenus dans le répertoire nommé : « Dossier des utilisateurs » : pour chaque fichier : droit de lecture seule accordé à son groupe – aucun droit pour les autres
+###
+###
+###chmod g=r,o=- /home/'Dossier des utilisateurs'/*
+###
+###
+###
+###Visualisez les changements
+###
+###ls -l /home/'Dossier des utilisateurs'
+###
+###
+###
+###Affiliez le fichier nommé « Cahier_des_charges » au groupe GroupA
+###
+###chgrp GroupA /home/'Dossier des utilisateurs'/Cahier_des_charges
+###
+###
+###
+###Affiliez le fichier nommé « Contrats » au groupe GroupB
+###
+###chgrp GroupB /home/'Dossier des utilisateurs'/Contrats
+###
+###
+###
+###Visualisez les nouvelles caractéristiques des fichiers contenus dans le répertoire nommé : « Dossier des utilisateurs »
+###
+###ls -l /home/'Dossier des utilisateurs'
+###
+###
+###
+###Dans le même terminal, connectez-vous sous le compte « UserX », essayez de lister avec affichage long le contenu du répertoire nommé : « Dossier des utilisateurs », essayez d’exécuter un dump du fichier nommé « Cahier_des_charges », essayez d’exécuter un dump du fichier nommé « Contrats », puis déconnectez-vous – TOUT CELA EST-IL PERMIS ET POURQUOI ?
+###
+###su - UserX
+###
+###ls -l /home/'Dossier des utilisateurs'
+###
+###cat /home/'Dossier des utilisateurs'/Cahier_des_charges
+###
+###cat /home/'Dossier des utilisateurs'/Contrats
+###
+###exit
+###
+###
+###
+###Dans le même terminal, connectez-vous sous le compte « UserY », essayez de lister avec affichage long le contenu du répertoire nommé : « Dossier des utilisateurs », essayez d’exécuter un dump du fichier nommé « Cahier_des_charges », essayez d’exécuter un dump du fichier nommé « Contrats », puis déconnectez-vous – TOUT CELA EST-IL PERMIS ET POURQUOI ?
+###
+###su - UserY
+###
+###ls -l /home/'Dossier des utilisateurs'
+###
+###cat /home/'Dossier des utilisateurs'/Cahier_des_charges
+###
+###cat /home/'Dossier des utilisateurs'/Contrats
+###
+###exit
+###
+###
+###
+###Dans le même terminal, connectez-vous sous le compte « UserZ », essayez de lister avec affichage long le contenu du répertoire nommé : « Dossier des utilisateurs », essayez d’exécuter un dump du fichier nommé « Cahier_des_charges », essayez d’exécuter un dump du fichier nommé « Contrats », puis déconnectez-vous – TOUT CELA EST-IL PERMIS ET POURQUOI ?
+###
+###su - UserZ
+###
+###ls -l /home/'Dossier des utilisateurs'
+###
+###cat /home/'Dossier des utilisateurs'/Cahier_des_charges
+###
+###cat /home/'Dossier des utilisateurs'/Contrats
+###
+###exit
+###
+###
+###
+###Affichez le manuel de la commande whereis
+###
+###man whereis
+###
+###
+###
+###Localisez le fichier binaire exécutable « uptime »
+###
+###whereis uptime
+###
+###
+###
+###Visualisez les caractéristiques du fichier binaire exécutable « uptime »
+###
+###ls -l /usr/bin/uptime
+###
+###
+###
+###Supprimez temporairement le droit d’exécution de la commande uptime aux utilisateurs ordinaires et visualisez cette suppression de droit
+###
+###chmod o-x /usr/bin/uptime
+###
+###ls -l /usr/bin/uptime
+###
+###
+###
+###Testez cette suppression de droit en tant que « UserZ »
+###
+###su - UserZ
+###
+###uptime
+###
+###exit
+###
+###
+###
+###Restaurez le droit d’exécution de la commande uptime pour les utilisateurs ordinaires et visualisez cette restauration de droit
+###
+###chmod o+x /usr/bin/uptime
+###
+###ls -l /usr/bin/uptime
+###
+###
+###
+###Testez cette restauration de droit en tant que « UserZ »
+###
+###su - UserZ
+###
+###uptime
+###
+###exit
+###
+###
+###
+###Interrogez les annuaires locaux ou réseaux en ce qui concerne le compte utilisateur UserX et le groupe GroupA
+###
+###getent passwd UserX
+###
+###getent group GroupA
+###
+###
+###
+###Affichez les caractéristiques du compte utilisateur local UserX et du groupe local GroupA
+###
+###grep UserX /etc/passwd
+###
+###grep GroupA /etc/group
+###
+###
+###
+###Créez le groupe UserT de numéro d’identification 1033
+###
+###groupadd -g 1033 UserT
+###
+###
+###
+###Créez le compte utilisateur UserT, uid = 1031, gid = 1033, avec son répertoire de connexion
+###
+###useradd -u 1031 -g 1033 -m UserT
+###
+###useradd -u 1031 -g UserT -m UserT
+###
+###
+###
+###Affichez l’identification et les groupes du compte utilisateur UserT
+###
+###id UserT
+###
+###
+###
+###Recherchez le répertoire de connexion de l’utilisateur UserT
+###
+###find / -name "UserT" -print
+###
+###
+###
+###Affiliez l’utilisateur UserT au groupe GroupC comme groupe secondaire, déplacez son répertoire de connexion vers un répertoire nommé « Utilisateur Test » et donnez-lui bash comme shell de connexion
+###
+###usermod -G GroupC -d /home/'Utilisateur Test' -m -s /bin/bash UserT
+###
+###
+###
+###Affichez l’identification et les groupes du compte utilisateur UserT
+###
+###id UserT
+###
+###
+###
+###Interrogez les annuaires en ce qui concerne le compte utilisateur UserT et le groupe GroupC
+###
+###getent passwd UserT
+###
+###getent group GroupC
+###
+###
+###
+###Mettez le mot : « usert » comme mot de passe à l’utilisateur UserT
+###
+###passwd UserT
+###
+###usert
+###usert
+###
+###
+###
+###Pour le compte « UserT », changez de commentaire – nouveau commentaire = « UserT est un utilisateur pour tester »
+###
+###chfn -f 'UserT est un utilisateur pour tester' UserT
+###
+###
+###
+###Déconnectez-vous
+###
+###
+###

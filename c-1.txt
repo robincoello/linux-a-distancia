@@ -1,0 +1,45 @@
+#### SYSTEME D'EXPLOITATION - e-learning - Séquence 1
+###
+###Instalación de su sistema – 1
+###
+###
+###
+###Utilizaremos la distribución Debian GNU/Linux (última version estable). Se trata de un sistema código abierto (gratuito).
+###
+###Étant donné que votre ordinateur est vraisemblablement doté d’un système Windows, une solution simple, pour y faire fonctionner le système Debian GNU/Linux,
+###est d’y installer d’abord un logiciel appelé : « machine virtuelle » ou « logiciel de virtualisation ».
+###
+###usaremos Oracle VM VirtualBox. Il s’agit d’un logiciel libre (gratuit).
+###
+###Site de Oracle VM VirtualBox :
+###
+###https://www.virtualbox.org/
+###
+###Pour le téléchargement de ce logiciel : Downloads – Oracle VM VirtualBox :
+###
+###https://www.virtualbox.org/wiki/Downloads
+###
+###ou :
+###
+###http://www.oracle.com/technetwork/server-storage/virtualbox/downloads/index.html
+###
+###Ce logiciel de virtualisation est appelé : « système hôte ». Il peut être installé sur les systèmes d’exploitation Windows, Mac OS X, Linux, ou Solaris.
+###
+###Lorsqu’il est installé et exécuté, on peut alors y installer un ou plusieurs systèmes d’exploitation appelés : « systèmes invités », puis les faire fonctionner. Un tel système$
+###
+###En réalité, un système invité ne fonctionne pas directement sur le matériel et n’accède pas directement à celui-ci. Lorsqu’il est installé dans Oracle VM VirtualBox, tout ce q$
+###
+###Pour vous initier à l’utilisation de Oracle VM VirtualBox : [PDF] Oracle VM VirtualBox Manuel de l'utilisateur :
+###
+###http://download.virtualbox.org/virtualbox/UserManual_fr_FR.pdf
+###
+###
+###
+###LABORATOIRE – Installation de votre système – 1
+###
+###
+###
+###Téléchargez et prenez connaissance du manuel de l’utilisateur de Oracle VM VirtualBox (les « Premiers pas » de ce manuel vous suffiront).
+###
+###Téléchargez et installez Oracle VM VirtualBox sur votre ordinateur.
+###

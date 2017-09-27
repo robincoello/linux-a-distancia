@@ -1,0 +1,362 @@
+###﻿453---SYSTEME D'EXPLOITATION - e-learning - Séquence 8
+###Accès au système de fichiers – 2
+###
+###Légende :
+###
+###Explications sur fond blanc
+###Exercice à accomplir sur fond rouge clair
+###Une ou plusieurs solutions possibles pour accomplir l’exercice sur fond vert clair
+###
+###
+###
+###Syntaxe du shell : les caractères de protection ou d’échappement :
+###
+###\	Annulation de la signification du caractère spécial suivant
+###'...'	Annulation de la signification de tous les caractères spéciaux
+###"..."	Annulation de la signification des caractères spéciaux, sauf : « ` », « \ » et « $ »
+###
+###
+###
+###Quelques commandes :
+###
+###
+###
+###FILE(1)
+###
+###NAME
+###       file - determine file type
+###
+###C’est grâce à la commande « file » que l’on peut savoir si un fichier est un fichier de programme exécutable, ou un fichier de texte, ou etc.
+###
+###
+###
+###CD(1)
+###
+###NAME
+###       cd - Change the shell working directory
+###
+###
+###
+###MKDIR(1)
+###
+###NOM
+###       mkdir - Créer des répertoires
+###
+###SYNOPSIS
+###       mkdir [OPTION]... RÉPERTOIRE...
+###
+###DESCRIPTION
+###       Créer les RÉPERTOIREs s'ils n'existent pas.
+###
+###
+###
+###LS(1)
+###
+###NOM
+###       ls - Afficher le contenu de répertoires
+###
+###SYNOPSIS
+###       ls [OPTION]... [FICHIER]...
+###
+###DESCRIPTION
+###       Afficher les informations des FICHIERs (du répertoire courant par défaut).
+###       Les entrées sont triées alphabétiquement si aucune des options
+###       -cftuvSUX ou --sort n'est indiquée.
+###
+###
+###
+###CP(1)
+###
+###NOM
+###       cp - Copier des fichiers et des répertoires
+###
+###SYNOPSIS
+###       cp [OPTION]... [-T] SOURCE CIBLE
+###       cp [OPTION]... SOURCE... RÉPERTOIRE
+###       cp [OPTION]... -t RÉPERTOIRE SOURCE...
+###
+###DESCRIPTION
+###       Copier la SOURCE vers la CIBLE, ou de multiples SOURCEs vers le RÉPERTOIRE.
+###
+###
+###
+###RM(1)
+###
+###NOM
+###       rm - Effacer des fichiers et des répertoires
+###
+###SYNOPSIS
+###       rm [OPTION]... FICHIER...
+###
+###DESCRIPTION
+###       Le programme rm efface chaque fichier listé.
+###       Par défaut, il n'efface pas les répertoires.
+###
+###
+###
+###DATE(1)
+###
+###NOM
+###       date - Afficher ou configurer la date et l'heure du système
+###
+###SYNOPSIS
+###       date [OPTION]... [+FORMAT]
+###       date [-u|--utc|--universal] [MMJJhhmm[[CC]AA][.ss]]
+###
+###DESCRIPTION
+###       Afficher dans le FORMAT indiqué ou configurer la date et l'heure du système.
+###
+###
+###
+###LABORATOIRE – Accès au système de fichiers – 2
+###
+###Les exercices des séquences 7 à 11 s’enchaînent.
+###Il faut donc les accomplir dans l’ordre prévu.
+###
+###Dans la distribution Debian GNU/Linux :
+###
+###
+###
+###Dans la suite, le nom de l’utilisateur ordinaire sera représenté par le mot « user ».
+###
+###
+###
+###Connectez-vous dans un terminal
+###
+###
+###
+###Affichez le manuel de la commande file
+###
+###man file
+###
+###
+###
+###Visualisez le type des fichiers /etc/services, /etc/issue, /usr/bin/who, /etc/passwd
+###
+###file /etc/services
+###
+###file /etc/issue
+###
+###file /usr/bin/who
+###
+###file /etc/passwd
+###
+###
+###
+###Changez de working directory de façon à ce qu’il devienne le répertoire personnel de user
+###
+###cd
+###
+###cd ~
+###
+###
+###
+###Affichez le manuel de la commande mkdir
+###
+###man mkdir
+###
+###
+###
+###Créez un répertoire nommé : « Un_dossier »
+###
+###mkdir Un_dossier
+###
+###
+###
+###Listez
+###
+###
+###
+###Syntaxe du shell : les caractères de protection ou d’échappement :
+###
+###\	Annulation de la signification du caractère spécial suivant
+###'...'	Annulation de la signification de tous les caractères spéciaux
+###"..."	Annulation de la signification des caractères spéciaux, sauf : « ` », « \ » et « $ »
+###
+###Créez un répertoire nommé : « Un dossier »
+###
+###mkdir 'Un dossier'
+###
+###
+###
+###Listez
+###
+###
+###
+###Créez la suite de répertoires suivante : dir1/doc1
+###
+###mkdir dir1
+###
+###ls
+###
+###cd dir1
+###
+###mkdir doc1
+###
+###ls
+###
+###
+###
+###Changez de working directory de façon à ce qu’il devienne le répertoire personnel de user
+###
+###cd
+###
+###cd ~
+###
+###
+###
+###Créez la suite de répertoires dir2/doc2/textes en exécutant une seule commande
+###
+###mkdir -p dir2/doc2/textes
+###
+###
+###
+###Visualisez le résultat puis faites en sorte que le working directory redevienne le répertoire personnel de user
+###
+###
+###
+###Affichez le manuel de la commande cp
+###
+###man cp
+###
+###
+###
+###Copiez le fichier /etc/issue, dans ~
+###
+###cp /etc/issue ~
+###
+###
+###
+###Listez
+###
+###
+###
+###Copiez le fichier /etc/issue en le fichier nommé : « distrib-vers », dans ~
+###
+###cp /etc/issue distrib-vers
+###
+###
+###
+###Listez
+###
+###
+###
+###Copiez le fichier /etc/issue en le fichier distrib-vers, dans Un_dossier (chemin relatif)
+###
+###cp /etc/issue Un_dossier/distrib-vers
+###
+###cp /etc/issue ./Un_dossier/distrib-vers
+###
+###
+###
+###Copiez le fichier /etc/issue en le fichier distrib-vers, dans Un_dossier (chemin absolu)
+###
+###cp /etc/issue /home/user/Un_dossier/distrib-vers
+###
+###cp /etc/issue ~/Un_dossier/distrib-vers
+###
+###ATTENTION !	Si vous effectuez une copie d’un fichier sur un fichier qui existe dejà, celui-ci est effacé et remplacé par le nouveau fichier !
+###
+###
+###
+###Copiez le fichier ~/issue en le fichier distrib-vers, dans Un_dossier, avec avertissement
+###
+###cp -i issue Un_dossier/distrib-vers
+###
+###
+###
+###Copiez le fichier ~/issue en le fichier distrib-vers, dans Un_dossier, avec avertissement et sauvegarde du fichier précédent dans le répertoire de destination
+###
+###cp -ib issue Un_dossier/distrib-vers
+###
+###
+###
+###Affichez le contenu du répertoire /home/user/Un_dossier, y compris les entrées cachées (débutant par « . »), en utilisant un format d’affichage long
+###
+###ls -al Un_dossier
+###
+###
+###
+###Copiez ~/Un_dossier/distrib-vers en d-v-ldur, dans le répertoire « Un dossier », en créant un lien « dur »
+###
+###cp -l Un_dossier/distrib-vers 'Un dossier'/d-v-ldur
+###
+###
+###
+###Visualisez les caractéristiques du fichier Un_dossier/distrib-vers
+###
+###ls -l Un_dossier/distrib-vers
+###
+###
+###
+###Visualisez les caractéristiques du fichier d-v-ldur
+###
+###ls -l 'Un dossier'/d-v-ldur
+###
+###
+###
+###Copiez ~/Un_dossier/distrib-vers en d-v-lsymb, dans le répertoire « Un dossier », en créant un lien symbolique
+###
+###cd 'Un dossier'
+###cp -s ../Un_dossier/distrib-vers d-v-lsymb
+###cd ..
+###
+###
+###
+###Visualisez les caractéristiques du fichier Un_dossier/distrib-vers
+###
+###ls -l Un_dossier/distrib-vers
+###
+###
+###
+###Visualisez les caractéristiques du fichier d-v-lsymb
+###
+###ls -l 'Un dossier'/d-v-lsymb
+###
+###
+###
+###Copiez récursivement le répertoire Un_dossier et son contenu dans le répertoire dir1, avec affichage des fichiers copiés (sortie verbeuse)
+###
+###cp -rv Un_dossier dir1
+###
+###
+###
+###Visualisez le résultat en listant
+###
+###
+###
+###Affichez le manuel de la commande rm
+###
+###man rm
+###
+###
+###
+###Supprimez le fichier ~/distrib-vers, avec avertissement
+###
+###rm -i distrib-vers
+###
+###
+###
+###Supprimez récursivement et de manière forcée le répertoire ~/dir1/Un_dossier et son contenu, sans avertissement
+###
+###rm -rf dir1/Un_dossier
+###
+###Cette dernière opération n’est évidemment à exécuter qu’avec grande précaution !
+###
+###
+###
+###Affichez la date et l’heure système, dans le style :
+###
+###DATE : samedi 24 mars 2029
+###HEURE : 16 heures 25 minutes 44 secondes
+###
+###date '+DATE : %A %d %B %C%y%nHEURE : %H heures %M minutes %S secondes'
+###
+###
+###
+###Déconnectez-vous
+###
+###exit
+###
+###
+###

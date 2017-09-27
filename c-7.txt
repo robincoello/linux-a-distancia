@@ -1,0 +1,394 @@
+###﻿453---SYSTEME D'EXPLOITATION - e-learning - Séquence 7
+###Accès au système de fichiers – 1
+###
+###Légende :
+###
+###Explications sur fond blanc
+###Exercice à accomplir sur fond rouge clair
+###Une ou plusieurs solutions possibles pour accomplir l’exercice sur fond vert clair
+###
+###
+###
+###Dans un système Linux, tous les répertoires et tous les fichiers prennent place logiquement dans une arborescence unique qui débute à la « racine » (« root »), notée : « / ».
+###
+###La commande « man hier » affiche la description de la hiérarchie de ce système de fichiers.
+###
+###Le chemin absolu d’un fichier est sa localisation logique dans l’arborescence, exprimée à partir de la racine. Il débute toujours par « / ». Par exemple : /var/log/messages
+###
+###Un chemin relatif de fichier est sa localisation logique dans l’arborescence, exprimée par rapport au répertoire de travail courant. Par exemple : log/messages, si le répertoire de travail courant est : /var
+###
+###Dans l’énoncé d’un chemin, « . » représente le répertoire de travail courant et « .. » représente le répertoire parent (du niveau supérieur dans l’arborescence).
+###
+###« ~ » représente toujours le répertoire de connexion de l’utilisateur courant.
+###
+###Tout « fichier » (au sens large) possède les caractéristiques suivantes :
+###
+###Champ 1 : Type
+###
+###			Fichier ordinaire (-)
+###			Répertoire (d)
+###			Fichier spécial de périphérique (b – bloc ; c – caractère)
+###			Lien symbolique (l)
+###			Fichier IPC, pipe et socket (p ; s)
+###
+###Champ 2 : Droits (Permissions)
+###Champ 3 : Nombre de liens
+###Champ 4 : Propriétaire
+###Champ 5 : Groupe
+###Champ 6 : Taille
+###Champ 7 : Date et heure de dernière modification
+###Champ 8 : Nom et extension
+###
+###
+###
+###« | » symbolise un « pipe », c’est-à-dire un « tube de communication » entre deux processus.
+###
+###
+###
+###Syntaxe du shell : les « jokers » (caractères de remplacement) :
+###
+###Le caractère « ? » représente un caractère quelconque.
+###Le caractère « * » représente une chaîne quelconque de caractères, même vide.
+###[abc] représente a, b ou c.
+###[!abc] représente un caractère différent de a, b, c.
+###[a-e] représente un caractère de a à e.
+###[!a-e] représente un caractère différent des caractères de a à e.
+###
+###
+###
+###Quelques commandes :
+###
+###
+###
+###HIER(7)
+###
+###NOM
+###       hier - Description de la hiérarchie du système de fichiers
+###
+###
+###
+###CD(1)
+###
+###NAME
+###       cd - Change the shell working directory
+###
+###
+###
+###LS(1)
+###
+###NOM
+###       ls - Afficher le contenu de répertoires
+###
+###SYNOPSIS
+###       ls [OPTION]... [FICHIER]...
+###
+###DESCRIPTION
+###       Afficher les informations des FICHIERs (du répertoire courant par défaut).
+###       Les entrées sont triées alphabétiquement si aucune des options
+###       -cftuvSUX ou --sort n'est indiquée.
+###
+###
+###
+###MORE(1)
+###
+###NOM
+###       More - Filtre lecteur de fichier
+###
+###SYNOPSIS
+###       more [-dlfpcsu] [-num] [+/motif] [+numligne] [fichier ...]
+###
+###DESCRIPTION
+###       more est un filtre permettant de se déplacer dans un texte, écran par écran.
+###       Cette version est particulièrement primitive. less(1) constitue une excellente émulation
+###       de more(1) avec en plus de nombreuses améliorations.
+###
+###
+###
+###CAT(1)
+###
+###NOM
+###       cat - Concaténer des fichiers et les afficher sur la sortie standard
+###
+###SYNOPSIS
+###       cat [OPTION]... [FICHIER]...
+###
+###DESCRIPTION
+###       Concaténer le(s) FICHIER(s) ou l'entrée standard, et les afficher sur la sortie standard.
+###
+###
+###
+###LESS(1)
+###
+###NAME
+###       less - opposite of more
+###
+###SYNOPSIS
+###       less -?
+###       less --help
+###       less -V
+###       less --version
+###       less [-[+]aABcCdeEfFgGiIJKLmMnNqQrRsSuUVwWX~]
+###              [-b space] [-h lines] [-j line] [-k keyfile]
+###              [-{oO} logfile] [-p pattern] [-P prompt] [-t tag]
+###              [-T tagsfile] [-x tab,...] [-y lines] [-[z] lines]
+###              [-# shift] [+[+]cmd] [--] [filename]...
+###       (See the OPTIONS section for alternate option syntax with long option names.)
+###
+###DESCRIPTION
+###       less is a program similar to more (1), but it has many more features.
+###
+###
+###
+###Un fichier :
+###
+###
+###
+###« /etc/services » : fichier qui contient la liste générale des services réseau TCP/IP avec leur numéro de port et le protocole de transport associé
+###
+###
+###
+###LABORATOIRE – Accès au système de fichiers – 1
+###
+###Les exercices des séquences 7 à 11 s’enchaînent.
+###Il faut donc les accomplir dans l’ordre prévu.
+###
+###Dans la distribution Debian GNU/Linux :
+###
+###
+###
+###Dans la suite, le nom de l’utilisateur ordinaire sera représenté par le mot « user ».
+###
+###
+###
+###Connectez-vous dans un terminal
+###
+###
+###
+###Affichez la description de l’arborescence du système de fichiers
+###
+###man hier
+###
+###
+###
+###Un chemin absolu ou complet commence par « / », c’est-à-dire par la racine.
+###Un chemin relatif commence par le répertoire ou le fichier adéquat, dans le répertoire de travail courant.
+###
+###Faites en sorte que le working directory devienne « /usr/bin » (emploi du chemin absolu)
+###
+###cd /usr/bin
+###
+###
+###
+###Changez de working directory de façon à remonter à la racine de l’arborescence
+###
+###cd /
+###
+###
+###
+###Faites en sorte que le working directory devienne « /usr/bin » (emploi du chemin relatif)
+###
+###cd usr/bin
+###
+###
+###
+###Changez de working directory de façon à remonter d’un niveau dans l’arborescence
+###
+###cd ..
+###
+###
+###
+###Faites en sorte que le working directory devienne « /usr/bin » (emploi du chemin relatif)
+###
+###cd bin
+###
+###
+###
+###Faites en sorte que le working directory devienne « /var/log » (emploi du chemin relatif)
+###
+###cd ../../var/log
+###
+###
+###
+###Faites en sorte que le working directory devienne « /var/lib » (emploi du chemin relatif)
+###
+###cd ../lib
+###
+###
+###
+###Faites en sorte que le working directory devienne « /bin » (emploi du chemin absolu)
+###
+###cd /bin
+###
+###
+###
+###Affichez le manuel de la commande ls
+###
+###man ls
+###
+###
+###
+###Affichez le contenu du working directory
+###
+###ls
+###
+###
+###
+###Affichez le contenu du working directory, en utilisant un format d’affichage long
+###
+###ls -l
+###
+###Champ 1 : Type
+###
+###			Fichier ordinaire (-)
+###			Répertoire (d)
+###			Fichier spécial de périphérique (b – bloc ; c – caractère)
+###			Lien symbolique (l)
+###			Fichier IPC, pipe et socket (p ; s)
+###
+###Champ 2 : Droits (Permissions)
+###Champ 3 : Nombre de liens
+###Champ 4 : Propriétaire
+###Champ 5 : Groupe
+###Champ 6 : Taille
+###Champ 7 : Date et heure de dernière modification
+###Champ 8 : Nom et extension
+###
+###
+###
+###Affichez le manuel des commandes more, cat et less
+###
+###man more
+###
+###man cat
+###
+###man less
+###
+###
+###
+###« | » symbolise un « pipe », c’est-à-dire un « tube de communication » entre deux processus.
+###
+###Affichez le contenu du working directory, en utilisant un format d’affichage long et en filtrant
+###
+###ls -l | more
+###
+###
+###
+###Syntaxe du shell : les « jokers » (caractères de remplacement) :
+###
+###Le caractère « ? » représente un caractère quelconque.
+###Le caractère « * » représente une chaîne quelconque de caractères, même vide.
+###[abc] représente a, b ou c.
+###[!abc] représente un caractère différent de a, b, c.
+###[a-e] représente un caractère de a à e.
+###[!a-e] représente un caractère différent des caractères de a à e.
+###
+###Affichez, en utilisant un format d’affichage long, les fichiers dans le répertoire /usr/bin dont le nom commence par un caractère quelconque suivi de la chaîne de caractères « sh », puis par deux caractères quelconques suivis du caractère « h »
+###
+###ls -l /usr/bin/?sh
+###
+###ls -l /usr/bin/??h
+###
+###
+###
+###Affichez les fichiers dans le working directory dont le nom est formé de cinq caractères, en utilisant un format d’affichage long
+###
+###ls -l ?????
+###
+###
+###
+###Affichez les fichiers dans le working directory commençant par la lettre « c », en utilisant un format d’affichage long
+###
+###ls -l c*
+###
+###
+###
+###Affichez les fichiers dans le working directory finissant par « h » et dont le nom est formé de trois caractères, en utilisant un format d’affichage long
+###
+###ls -l ??h
+###
+###
+###
+###Affichez les fichiers dans le working directory commençant par la lettre « a » ou « d », en utilisant un format d’affichage long
+###
+###ls -l [ad]*
+###
+###
+###
+###Affichez les fichiers dans le working directory commençant par un caractère différent de « a » et « c », en utilisant un format d’affichage long
+###
+###ls -l [!ac]*
+###
+###
+###
+###Affichez les fichiers dans le working directory commençant par un caractère de « k » à « p », en utilisant un format d’affichage long
+###
+###ls -l [k-p]*
+###
+###
+###
+###Affichez les fichiers dans le working directory commençant par un caractère différent des caractères de « c » à « v », en utilisant un format d’affichage long
+###
+###ls -l [!c-v]*
+###
+###
+###
+###« ~ » représente le répertoire de connexion de l’utilisateur courant.
+###
+###Affichez le contenu du répertoire /home/user, en utilisant un format d’affichage long
+###
+###ls -l /home/user
+###
+###ls -l ~
+###
+###
+###
+###Affichez le contenu du répertoire /home/user, y compris les entrées cachées (débutant par « . »), en utilisant un format d’affichage long
+###
+###ls -al /home/user
+###
+###ls -al ~
+###
+###
+###
+###Affichez le contenu du répertoire /var/log classé par date, c'est-à-dire du plus récent au plus ancien, en utilisant un format d’affichage long
+###
+###ls -lt /var/log
+###
+###
+###
+###Affichez les fichiers dans le working directory en ajoutant un caractère (parmi « */=>@| ») à chaque entrée de façon à les classer selon leur type, en utilisant un format d’affichage long
+###
+###ls -lF
+###
+###
+###
+###Affichez le contenu du répertoire /var/log classé par type d’extension, en utilisant un format d’affichage long
+###
+###ls -lX /var/log
+###
+###
+###
+###Affichez les fichiers dans le working directory classés par taille décroissante, en utilisant un format d’affichage long
+###
+###ls -lS
+###
+###
+###
+###Visualisez les caractéristiques du fichier /etc/services
+###
+###ls -l /etc/services
+###
+###
+###
+###Visualisez les caractéristiques du fichier de commande /usr/bin/who
+###
+###ls -l /usr/bin/who
+###
+###
+###
+###Déconnectez-vous
+###
+###exit
+###
+###
+###
